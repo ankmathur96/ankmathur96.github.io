@@ -8,14 +8,14 @@
 body {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 18px;
-  background-color: #FFF;
-  text-align: center;
+  background-color: #E6E6E6;
+  margin: 2em;
 }
 
 /* Hyperlinks */
 
 a {
-  color: #A52A2A;
+  color: #2952CC;
   text-decoration: none;
   transition: color .15s ease-in-out;
   -moz-transition: color .15s ease-in-out;
@@ -122,26 +122,6 @@ code.mathjax .MathJax_Display {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 100;
 }
-
-.home .intro .good {
-  color: #0000FF;
-}
-
-.home .intro .bad {
-  color: #a00;
-}
-
-.home .intro {
-  margin-bottom: 1.5em;
-  font-size: 1.25em;
-  line-height: 1.25em;
-  text-align: left;
-}
-
-.home .intro p {
-  margin: 0.5em 0;
-}
-
 .home hr {
   display: block;
   max-width: 30em;
