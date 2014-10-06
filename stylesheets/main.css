@@ -1,5 +1,34 @@
 /* Global */
+footer{
+  width:100%;
+  height:80px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background:#E6E6E6;
+  font-size: 80%;
+  color: #393939;
+  border-top: 1px solid #000;
+  margin-top: 2em;
+  overflow: hidden;
+}
+.site .footer {
+  font-size: 80%;
+  color: #666;
+  border-top: 1px solid #000;
+  margin-top: 2em;
+  overflow: hidden;
+}
 
+.site .footer .contact {
+  float: left;
+  margin-right: 3em;
+}
+
+.site .footer .contact a {
+  color: #8085C1;
+  margin-right: 0.5em;
+}
 * {
   margin: 0;
   padding: 0;
@@ -96,24 +125,6 @@ code.mathjax .MathJax_Display {
 
 .site .meta {
   color: #aaa;
-}
-
-.site .footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 1px solid #000;
-  margin-top: 2em;
-  overflow: hidden;
-}
-
-.site .footer .contact {
-  float: left;
-  margin-right: 3em;
-}
-
-.site .footer .contact a {
-  color: #8085C1;
-  margin-right: 0.5em;
 }
 
 /* Home */
