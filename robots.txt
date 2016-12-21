@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /anaga.html
+Disallow: /personal_assets/
