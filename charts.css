@@ -17,6 +17,7 @@
 }
 body {
 	font-family: 'Roboto', sans-serif;
+	background-image: url("assets/asanoha-400px.png")
 }
 #chartdiv {
 	width	: 100%;
