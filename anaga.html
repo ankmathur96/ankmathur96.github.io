@@ -1,41 +1,156 @@
-ƒ<head>
-<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<head>
 <link rel="stylesheet" href="charts.css" type="text/css" media="all" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<link rel="stylesheet" href="gallery/photoswipe.css"> 
+<link rel="stylesheet" href="gallery/default-skin/default-skin.css"> 
+<script src="gallery/photoswipe.min.js"></script> 
+<script src="gallery/photoswipe-ui-default.min.js"></script> 
 </head>
 <body>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
-	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
-	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-	<script src="charts.js"></script>
-<!-- 	<h1>Anaga</h1>
-	<div class="image-carousel">
-		<div><img src="assets/images/1.jpg" ></div>
-		<div><img src="assets/images/2.jpg"></div>
-		<div><img src="assets/images/3.jpg"></div>
-		<div><img src="assets/images/4.jpg"></div>
-		<div><img src="assets/images/5.jpg"></div>
-		<div><img src="assets/images/6.jpg"></div>
-		<div><img src="assets/images/7.jpg"></div>
-		<div><img src="assets/images/8.jpg"></div>
-		<div><img src="assets/images/9.jpg"></div>
-		<div><img src="assets/images/10.jpg"></div>
-		<div><img src="assets/images/11.jpg"></div>
-		<div><img src="assets/images/12.jpg"></div>
-	</div>
-	<script type="text/javascript">
-		$('.image-carousel').slick({
-		  dots: true,
-		  infinite: true,
-		  speed: 300,
-		  slidesToShow: 1,
-		  variableWidth: true,
-		  adaptiveHeight: true
-		});
-	</script> -->
-	<div id="chartdiv"></div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="charts.js"></script>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div> 
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <h2>Me and Anaga:</h2>
+
+  <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/1.jpg" itemprop="contentUrl" data-size="719x1280">
+          <img src="personal_assets/1.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">SF</figcaption>
+                                          
+    </figure>
+
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/2.jpg" itemprop="contentUrl" data-size="719x1280">
+          <img src="personal_assets/2.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">SF</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/7.jpg" itemprop="contentUrl" data-size="1009x1794">
+          <img src="personal_assets/7.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Staying over</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/8.jpg" itemprop="contentUrl" data-size="1080x1776">
+          <img src="personal_assets/8.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">168 Project 1 ;)</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/9.jpg" itemprop="contentUrl" data-size="1080x1776">
+          <img src="personal_assets/9.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">168 Project 1 ;)</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/10.jpg" itemprop="contentUrl" data-size="1080x1776">
+          <img src="personal_assets/10.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">168 Project 1 ;)</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/11.jpg" itemprop="contentUrl" data-size="1080x720">
+          <img src="personal_assets/11.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Comfort</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/12.jpg" itemprop="contentUrl" data-size="1080x720">
+          <img src="personal_assets/12.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Comfort</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/13.jpg" itemprop="contentUrl" data-size="1080x720">
+          <img src="personal_assets/13.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Comfort</figcaption>
+    </figure>
+     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/3.jpg" itemprop="contentUrl" data-size="3024x4032">
+          <img src="personal_assets/3.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Osha Thai</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/4.jpg" itemprop="contentUrl" data-size="1944x2592">
+          <img src="personal_assets/4.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Ferry Building</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/5.jpg" itemprop="contentUrl" data-size="4024x2742">
+          <img src="personal_assets/5.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Ferry Building</figcaption>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="personal_assets/6.jpg" itemprop="contentUrl" data-size="5957x2591">
+          <img src="personal_assets/6.jpg" itemprop="thumbnail" alt="Image description" />
+      </a>
+      <figcaption itemprop="caption description">Ferry Building</figcaption>
+    </figure>
+  </div>
+<script src="gallery.js"></script>
+<h2>Message Frequency:</h2>
+<div id="chartdiv"></div>
 </body>
