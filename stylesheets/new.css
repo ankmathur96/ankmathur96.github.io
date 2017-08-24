@@ -31,7 +31,7 @@ td {
 .avatar {
   height: 12em;
   width: 12em;
-  background: url('../assets/mypic.jpg')  no-repeat center;
+  background: url('../assets/me.jpg')  no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
