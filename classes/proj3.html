@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/ -->
+<html style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+Tinker Template
+http://www.templatemo.com/tm-506-tinker
+-->
+        <title>CS194-26 Project 3 - Ankit Mathur</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="./proj3_files/css" rel="stylesheet">
+        <link href="./proj3_files/css(1)" rel="stylesheet">
+        
+        <link rel="apple-touch-icon" href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/apple-touch-icon.png">
+
+        <link rel="stylesheet" href="./proj3_files/bootstrap.min.css">
+        <link rel="stylesheet" href="./proj3_files/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./proj3_files/fontAwesome.css">
+        <link rel="stylesheet" href="./proj3_files/hero-slider.css">
+        <link rel="stylesheet" href="./proj3_files/owl-carousel.css">
+        <link rel="stylesheet" href="./proj3_files/templatemo-style.css">
+        <link rel="stylesheet" href="./proj3_files/lightbox.css">
+
+        <script src="./proj3_files/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style></style></head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="navbar-brand scroll-top"><em>CS</em>194-26 Project 3</a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-top" data-id="sharpening">Sharpening - Warmup</a></li>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-link" data-id="hybrid">Hybrid Images</a></li>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-link" data-id="laplace">Laplacian Stacks</a></li>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-link" data-id="multires">Multiresolution Blending</a></li>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-link" data-id="toy">Toy Problem</a></li>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-link" data-id="poisson">Poisson Blending</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <div class="parallax-content baner-content" id="home" style="background-position: center center;">
+        <div class="container">
+            <div class="text-content">
+                <h2>Fun with <span>Frequencies</span> and <em>Gradients</em></h2>
+                <p>In this project, we seek to take advantage of the frequency and gradient representations of images to perform visual transformations on them in the spatial domain. This will allow us to perform some really cool tricks with images (from sharpening them to blending them into each other) to create fascinating results. </p>
+                <div class="primary-white-button">
+                    <a href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/#" class="scroll-link" data-id="sharpening">Let's Start</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="sharpening">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Sharpening</h4>
+                            <div class="line-dec"></div>
+                            <p>Click on each example to see the comparison.</p>
+                            <div class="filter-categories">
+                                <ul class="project-filter">
+                                    <li class="filter" data-filter="lenna"><span>Lena</span></li>
+                                    <li class="filter" data-filter="plants"><span>Plants</span></li>
+                                    <li class="filter" data-filter="mom"><span>Family</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 project-item mix plants mix_all" style="display: inline-block;  opacity: 1;">
+                                      <div class="thumb">
+                                        <div class="image">
+                                                <a href="./proj3_files/plants.jpg" data-lightbox="image-1"><img src="./proj3_files/plants.jpg"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix plants mix_all" style="display: inline-block;  opacity: 1;">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                    <a href="./proj3_files/plants_sharp.jpg" data-lightbox="image-1"><img src="./proj3_files/plants_sharp.jpg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix lenna mix_all" style="display: inline-block;  opacity: 1;">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="./proj3_files/lena_original.png" data-lightbox="image-1"><img src="./proj3_files/lena_original.png"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix lenna mix_all" style="display: inline-block;  opacity: 1;">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="./proj3_files/lena_sharp.png" data-lightbox="image-1"><img src="./proj3_files/lena_sharp.png"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix mom mix_all" style="display: inline-block;  opacity: 1;">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="./proj3_files/mom.jpg" data-lightbox="image-1"><img src="./proj3_files/mom.jpg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix mom mix_all" style="display: inline-block;  opacity: 1;">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="./proj3_files/mom_sharp.jpg" data-lightbox="image-1"><img src="./proj3_files/mom_sharp.jpg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lena"><p>Lena - this is the classic example used in vision papers, so I figured I'd include the sharpening results here.</p></div>
+                    <div class="plants"><p>Plants - what's cool to note here is the reflection on the leaves. You can clearly see that each individual leaf's edges get sharper and the edges formed by the light are also emphasized.</p></div>
+                    <div class="mom"><p>Family - this picture is interesting because of the pink dress on the right side - in the left side image you can clearly see that the individual plastic pieces have been blurred, but when sharpened, the dress can be seen in far more detail.</p></div>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <section id="hybrid">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Hybrid Images</h4>
+                            <div class="line-dec"></div>
+                            <p>In the hybrid images, we first align the images so that we have an aligned pair of images so that we can have the structures within the image aligned on top of each other for best results. Then, we run one image over a low pass filter to remove some of the details and run the other over a high pass filter and get the detail. Then, we add these together, replacing the detail in the first image with that of the second. This creates a perceptual trick where we perceive the images as both being present. The way that our eyes see means that zoomed out we see the low pass but zoomed in, we see the details. Click on each image to see the image in higher resolution!</p>
+                        </div>
+                    </div>
+                    <table>
+                    <tbody><tr>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/man.jpg" data-lightbox="image-1"><img width="100%," height="100%" src="./proj3_files/man.jpg"></a>
+                                    </div>
+                                </div>
+                        </td>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/self.jpg" data-lightbox="image-1"><img width="100%," height="100%" src="./proj3_files/self.jpg"></a>
+                                    </div>
+                                </div>
+                        </td>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/DerekPicture.jpg" data-lightbox="image-1"><img src="./proj3_files/DerekPicture.jpg"></a>
+                                    </div>
+                                </div>                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="thumb">
+                                <div class="image">
+                                    <a href="./proj3_files/skeleton.jpg" data-lightbox="image-1"><img width="100%," height="100%," src="./proj3_files/skeleton.jpg"></a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/obama.jpg" data-lightbox="image-1"><img src="./proj3_files/obama.jpg"></a>
+                                    </div>
+                        </div></td>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/nutmeg.jpg" data-lightbox="image-1"><img src="./proj3_files/nutmeg.jpg"></a>
+                                    </div>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/man_skeleton.jpg" data-lightbox="image-1"><img src="./proj3_files/man_skeleton.jpg"></a>
+                                    </div>
+                                </div>
+                        </td>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/self_obama.jpg" data-lightbox="image-1"><img src="./proj3_files/self_obama.jpg"></a>
+                                    </div>
+                                </div>
+                        </td>
+                        <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/DerekPicture_nutmeg.jpg" data-lightbox="image-1"><img src="./proj3_files/DerekPicture_nutmeg.jpg"></a>
+                                    </div>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+                We also did some FFT analysis of my personal favorite - the combination with Obama! We first present the FFT of the two original images:
+                <div class="thumb">
+                    <div class="image">
+                        <a href="./proj3_files/self_fft.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/self_fft.jpg"></a>
+                    </div>
+                </div>
+                <div class="thumb">
+                    <div class="image">
+                        <a href="./proj3_files/obama_fft.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/obama_fft.jpg"></a>
+                    </div>
+                </div>
+                Then, we do the FFT analysis on the low pass version of the self image:
+                <div class="thumb">
+                    <div class="image">
+                        <a href="./proj3_files/selflowpass_fft.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/selflowpass_fft.jpg"></a>
+                    </div>
+                </div>
+                Here's the FFt on the high pass of the Obama image:
+                <div class="thumb">
+                    <div class="image">
+                        <a href="./proj3_files/obamahighpass_fft.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/obamahighpass_fft.jpg"></a>
+                    </div>
+                </div>
+                Finally, we compute the FFT of the original image and notice the combination of the two FFTs that we computed above.
+                <div class="thumb">
+                    <div class="image">
+                        <a href="./proj3_files/self_obama_hybrid_fft.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/self_obama_hybrid_fft.jpg"></a>
+                    </div>
+                </div>
+                We should also cover a case where the blending didn't work - here we try to blend a rose and a sunflower both in color. This ends up not working out very well, as we can see here:
+                <table>
+                    <tbody><tr>
+                        <td>
+                            <div class="thumb">
+                                <div class="image">
+                                    <a href="./proj3_files/sunflower.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/sunflower.jpg"></a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="thumb">
+                                <div class="image">
+                                    <a href="./proj3_files/rose.jpg" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/rose.jpg"></a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="thumb">
+                                <div class="image">
+                                    <a href="./proj3_files/failed_blend.png" data-lightbox="image-1"><img width="50%," height="30%" src="./proj3_files/failed_blend.png"></a>
+                                </div>
+                            </div>
+                        </td>
+                </tr></tbody></table>
+                </div>
+            </div>
+        </div> 
+    </section>
+        <section id="laplace">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Gaussian and Laplacian Stacks</h4>
+                            <div class="line-dec"></div>
+                            <p>A Gaussian stack simply involves convolving the original image with a Gaussian with increasing sigma at each layer of the stack. It is a stack not a pyramid because we do not downsample at every step. The Laplacian stack subtracts level n+1 of the Gaussian from level n of the Gaussian stack. In this way, the Laplacian stack represents the details in the image at various frequency levels. Note that I made the Laplacian images look more contrasted for more clarity. Click on each image to see the image in higher resolution!</p>
+                        </div>
+                    </div>
+                    <div class="thumb">
+                        <div class="image">
+                            <a href="./proj3_files/laplacian_lincoln.jpg" data-lightbox="image-1"><img width="60%" src="./proj3_files/laplacian_lincoln.jpg"></a>
+                        </div>
+                    </div>
+                    <div class="thumb">
+                        <div class="image">
+                            <a href="./proj3_files/laplacian_man_skeleton.jpg" data-lightbox="image-1"><img width="60%" src="./proj3_files/laplacian_man_skeleton.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+        <section id="multires">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Multiresolution Blending</h4>
+                            <div class="line-dec"></div>
+                            <p>Here, we utilize the power of the Gaussian and Laplacian stacks. First, we create a Gaussian stack with the mask image. We do this to account for the fact that the original paper using Gaussian pyramids and that creates additional blending of seams, so we need to simulate that. Then, we create a combined Laplacian stack for the merged image by multiplying the Gaussian layer of the stack of each image by the Gaussian of the mask at every level (or 1 - Gaussian of the mask) depending on the level. Then, we add back the last 2 layers of the Gaussian stack for each image. 
+
+                            My favorite result is the Jupiter Sun, which I also applied a tad of darkening to to create a nice effect. Click on each image to see the image in higher resolution!</p>
+                        </div>
+                    </div>
+                        <table>
+                        <tbody><tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/apple.jpeg" data-lightbox="image-1"><img src="./proj3_files/apple.jpeg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/orange.jpeg" data-lightbox="image-1"><img src="./proj3_files/orange.jpeg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/apple_orange.png" data-lightbox="image-1"><img src="./proj3_files/apple_orange.png"></a>
+                                        </div>
+                                    </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/orange.jpeg" data-lightbox="image-1"><img src="./proj3_files/orange.jpeg"></a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/apple.jpeg" data-lightbox="image-1"><img src="./proj3_files/apple.jpeg"></a>
+                                        </div>
+                            </div></td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/oraple.png" data-lightbox="image-1"><img src="./proj3_files/oraple.png"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/sun.jpg" data-lightbox="image-1"><img src="./proj3_files/sun.jpg"></a>
+                                        </div>
+                                    </div>                        
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/jupiter.jpg" data-lightbox="image-1"><img src="./proj3_files/jupiter.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/sun_jupiter.jpg" data-lightbox="image-1"><img src="./proj3_files/sun_jupiter.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </div> 
+    </section>
+        <section id="toy">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="section-heading">
+                            <h4>Toy Problem</h4>
+                            <div class="line-dec"></div>
+                            <p>In the case of the toy problem, we seek to solve a system of (2*n) + 1 equations where n is the number of pixels in the image. To solve this, we set up a matrix that is (2*n) + 1 by n. We also set up a matrix with the local gradients for each equation. This gives us a linear system where we are solving for the x in Ax - b = 0. We use the least squares regression technique to find an x vector that we can then reshape back to look like the original image. Note that in the above case, we see an almost perfect reconstruction based on the gradients.. Click on each image to see the image in higher resolution!</p>
+                        </div>
+                    </div>
+                    <table>
+                        <tbody><tr>
+                            <td>
+                                Original
+                            <div class="thumb">
+                                <div class="image">
+                                    <a href="./proj3_files/toy_problem.png" data-lightbox="image-1"><img height="200px," width="150px," src="./proj3_files/toy_problem.png"></a>
+                                </div>
+                            </div>
+                            </td>
+                            <td>
+                                Recovered
+                            <div class="thumb">
+                                <div class="image">
+                                    <a href="./proj3_files/toy_recovered.png" data-lightbox="image-1"><img height="200px," width="150px," src="./proj3_files/toy_recovered.png"></a>
+                                </div>
+                            </div>
+                        </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </div> 
+    </section>
+        <section id="poisson">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="section-heading">
+                            <h4>Poisson Blending</h4>
+                            <div class="line-dec"></div>
+                            <p>Poisson blending works by solving a least squares equation for pixels in the area of the mask. It seeks to equalize the gradients of the source image with the target image. Then, by finding a least squares solution, we can find the approximate pixel intensities that best solve these gradient constraints. These may not be the original intensities, but we play on the science of vision and how people notice the gradients of images. The images are (in order) the target image, the source image, the version of the image with the pixels pasted on top, and the final blended image. Note that we include the case of failure in this too. Observe how the blending screws up the arm of the penguin in the blending with the Taj Mahal. 
+
+                            Click on each image to see the image in higher resolution!</p>
+                        </div>
+                    </div>
+                        <table>
+                        <tbody><tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/im2.jpg" data-lightbox="image-1"><img src="./proj3_files/im2.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/penguin-chick.jpeg" data-lightbox="image-1"><img src="./proj3_files/penguin-chick.jpeg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/super_penguin_hikers.jpg" data-lightbox="image-1"><img src="./proj3_files/super_penguin_hikers.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/penguin_hikers_blended.png" data-lightbox="image-1"><img src="./proj3_files/penguin_hikers_blended.png"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/wintry.jpg" data-lightbox="image-1"><img src="./proj3_files/wintry.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/penguin-chick.jpeg" data-lightbox="image-1"><img src="./proj3_files/penguin-chick.jpeg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/super_chick_wintry.jpg" data-lightbox="image-1"><img src="./proj3_files/super_chick_wintry.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/penguin_winter_blend.png" data-lightbox="image-1"><img src="./proj3_files/penguin_winter_blend.png"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/obama_swaggy.jpg" data-lightbox="image-1"><img src="./proj3_files/obama_swaggy.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/penguin-chick.jpeg" data-lightbox="image-1"><img src="./proj3_files/penguin-chick.jpeg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/super_obama_penguin.jpg" data-lightbox="image-1"><img src="./proj3_files/super_obama_penguin.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/penguin_obama_blend.png" data-lightbox="image-1"><img src="./proj3_files/penguin_obama_blend.png"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/pool.jpg" data-lightbox="image-1"><img src="./proj3_files/pool.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/turtle.jpg" data-lightbox="image-1"><img src="./proj3_files/turtle.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/turtle_pool_blend.png" data-lightbox="image-1"><img src="./proj3_files/turtle_pool_blend.png"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/penguin_winter_blend.png" data-lightbox="image-1"><img src="./proj3_files/penguin_hikers_blended.png"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/taj.jpg" data-lightbox="image-1"><img src="./proj3_files/taj.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/penguin-chick.jpeg" data-lightbox="image-1"><img src="./proj3_files/penguin-chick.jpeg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/super_taj_chick.jpg" data-lightbox="image-1"><img src="./proj3_files/super_taj_chick.jpg"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/penguin_taj_blend_fail.png" data-lightbox="image-1"><img src="./proj3_files/penguin_taj_blend_fail.png"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="portfolio">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="section-heading">
+                            <h4>Comparing Poisson Blending and Laplacian Blending</h4>
+                            <div class="line-dec"></div>
+                            <p>We blended the following image with both Poisson Blending and Laplacian Blending - in general, for these more complex cases, the Laplacian blending leaves the ghosting of the previous image in a pretty significant way. This is most noticeable with the turtle, where we see that the result in Poisson blending is pretty nice, even with the gradients of the pool being somewhat complex. However, the Laplacian blending seems to darken the image and leaves a clear trace of ghosting. The same can be seen in the Obama-Penguin blend, where the remnants of the dramatically different pixel intensities are left in the blended image. In less complex scenarios with a half and half mask (like Oraple), Laplacian blending may give better results because it more cleanly blends the seams and maintains similar pixel intensities. </p>
+                        </div>
+                    </div>
+                        <table>
+                        <tbody><tr>
+                            <td>
+                                    <div class="thumb">
+                                        <div class="image">
+                                            <a href="./proj3_files/turtle_pool_blend.png" data-lightbox="image-1"><img src="./proj3_files/turtle_pool_blend.png"></a>
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/failed_blend.jpg" data-lightbox="image-1"><img src="./proj3_files/failed_blend.jpg"></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/penguin_obama_blend.png" data-lightbox="image-1"><img src="./proj3_files/penguin_obama_blend.png"></a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="thumb">
+                                    <div class="image">
+                                        <a href="./proj3_files/laplacian_obama.png" data-lightbox="image-1"><img src="./proj3_files/laplacian_obama.png"></a>
+                                    </div>
+                    </div></td></tr></tbody></table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./proj3_files/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="./proj3_files/bootstrap.min.js"></script>
+
+    <script src="./proj3_files/plugins.js"></script>
+    <script src="./proj3_files/main.js"></script>
+
+    <script src="./proj3_files/jquery.min(1).js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+
+<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/"></a><a class="lb-next" href="https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj3/cs194-26-aey/"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div></body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0078)https://inst.eecs.berkeley.edu/~cs194-26/fa17/upload/files/proj2/cs194-26-aey/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Project 2: Building a Pinhole Camera</title>
+    <link href="./proj2_files/sty.css" rel="stylesheet" type="text/css">
+<style type="text/css" media="all">
+#primarycontent {
+    margin-left: auto;  
+    width: expression(document.body.clientWidth > 995? "995px": "auto" );
+    margin-right: auto;
+    text-align: left;
+    max-width: 995px 
+}
+</style><style></style></head>
+
+
+
+<body>
+<div id="primarycontent">
+<h1> Building a Camera Obscura</h1>
+<h2> by Anaga Rajan and Ankit Mathur</h2>
+<h2>Overview</h2>
+<p>
+In this project, the goal was to build a camera obscura and use it to capture real world images. A camera obscura works by allowing rays through a small pinhole. Thus, they fall onto a screen and are captured by a long-exposure camera. These images are flipped upside down.  This is because the light rays from an object below the pinhole must be drawn in a diagonal line through the pinhole and end up on top. Wr observe the differences when changing the parameters of the "experiment" (like the pinhole size, the exposure time, and aperture size). </p>
+<h2>Box Design</h2>
+<h3> Box Design </h3>
+<p>Our box is a midsize Amazon box. We cut a larger hole in the right side of the box to put the camera in and a smaller hole to the left of it for the pinholes. We tilted the camera towards the pinhole so that our camera was capturing the right field of view. </p>
+<img src="./proj2_files/box_1.jpg" height="534" width="617">
+<p>We created the darkest possible environment inside the box by covering it with a thick, black tape. In addition to this, we bought heavy construction paper to cover inside walls of the box and parts of the outside box.</p>
+<!-- We were assisted greatly by the tape of Harambe - may he rest in peace. -->
+<img src="./proj2_files/box_2.jpg" height="534" width="617">
+<p> We use a white paper on the inside as the background.</p>
+<p> We built 3 pinholes on separate black construction paper cards, and used masking tape to cover some of the black paper to further minimize light getting through the hole. We made a relatively larger hole so that we could swap in different pinholes. </p>
+<img src="./proj2_files/box_3.jpg" height="534" width="617">
+<h3> Lessons Learned </h3>
+<p> Unfortunately, the first couple of times we tried to take pictures, we didn't realize that our camera was not focusing correctly. Therefore, we were confused why all the images we had were extremely blurry. However, once we realized that we needed to figure out a way to make the camera focus, we had a better time. We had to wrangle with the autofocus on my camera, since auto focus doesn't allow a picture capture if the scene is too dark. We ended up focusing on something a distance equal to the box width away, then switching to manual to make it so that the focus of the camera was the right length. <b>Note that many of these images are cropped to crop out some white splotches that seemed to be a function of where the sun was. </b>
+</p><h2>Results</h2>
+<table style="width: 100%">
+    <tbody><tr>
+        <th> 5mm </th>
+        <th> 3mm </th>
+        <th> 0.1mm </th>
+    </tr>
+    <tr>
+        <td>
+        <p>Exposure time: 5s, f/stop: 4.4, ISO: 1600</p>
+        <img src="./proj2_files/s1_5mm.jpg" height="350" width="350">
+        </td>
+        <td>
+        <p>Exposure time: 10s, f/stop: 4.4, ISO: 3200</p>
+        <img src="./proj2_files/s1_3mm.jpg" height="350" width="350">
+        </td>
+        <td>
+        <p>Exposure time: 15s, f/stop: 4.4, ISO: 6400</p>
+        <img src="./proj2_files/s1_1mm.jpg" height="350" width="350">
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <p>Exposure time: 5s, f/stop: 4.4, ISO: 1600</p>
+        <img src="./proj2_files/s2_5mm.jpg" height="350" width="350">
+        </td>
+        <td>
+        <p>Exposure time: 10s, f/stop: 4.4, ISO: 3200</p>
+        <img src="./proj2_files/s2_3mm.jpg" height="350" width="350">
+        </td>
+        <td>
+        <p>Exposure time: 15s, f/stop: 4.4, ISO: 6400</p>
+        <img src="./proj2_files/s2_1mm.jpg" height="350" width="350">
+        </td>
+    </tr>
+</tbody></table>
+<h3> Best Pinhole </h3>
+<p> 1mm gave the best images for us. We computed the focal length that was supposed to give us the correct and this gave us an optimal focal length of approximately 0.07 mm (which we obviously could not obtain accurately). This lined up with our expectation that the 1mm would be the best approximation. This makes sense because the smaller the focal length, the more concentrated the rays of light will be (as opposed to washed out and spread out a little bit). The smaller pinhole did need a longer exposure time to work effectively though (which also lines up with our expectations). The 5mm hole emphasized this, as the images were bright but blurry (even with smaller exposure times). The 3mm hole was in the middle (bright, but still slightly blurry), so it was a good compromise if one needed shorter exposure times.
+
+ Here are four more images with the 1mm pinhole:</p>
+<img src="./proj2_files/1mm_first.jpg" height="350" width="350">
+<img src="./proj2_files/1mm_2.jpg" height="350" width="350">
+<img src="./proj2_files/1mm_3.jpg" height="350" width="350">
+<img src="./proj2_files/1mm_4.jpg" height="350" width="350">
+<h2>Bells and Whistles</h2>
+<h3>Light Painting</h3>
+<p> We decided to try to do some light painting experiments with both our pinhole camera and our actual camera. What we did was just move a light (preferably a flashlight) around in the field of view of the pinhole camera or normal camera and take a longer exposure image. The concept is super fun! Here is an image that we took with our pinhole camera (but had to crop: </p>
+<img src="./proj2_files/pinhole_painting.jpg" height="534" width="2000">
+<p>And here are some images that we took with just our camera where we light painted last year: </p>
+<img src="./proj2_files/ankit_light_paint.jpg" height="700">
+<p>Here's one from this year:</p>
+<img src="./proj2_files/painting_2.jpg" height="534" width="617">
+</div>
+
+
+<img id="hzDownscaled" style="position: absolute; top: -10000px;"><img id="hzDownscaled" style="position: absolute; top: -10000px;"><img id="hzDownscaled" style="position: absolute; top: -10000px;"><img id="hzDownscaled" style="position: absolute; top: -10000px;"><img id="hzDownscaled" style="position: absolute; top: -10000px;"><img id="hzDownscaled" style="position: absolute; top: -10000px;"><img id="hzDownscaled" style="position: absolute; top: -10000px;"></body></html>
